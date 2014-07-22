@@ -1,0 +1,30 @@
+<h1>Evaluate <%= @employee.name %></h1>
+<table>
+  <thead>
+    <tr>
+	  <th>10/13</th>
+      <th>11/13</th>
+      <th>12/13</th>
+      <th>01/14</th>
+      <th>02/14</th>
+      <th>03/14</th>
+      <th>04/14</th>
+      <th>05/14</th>
+      <th>06/14</th>
+      <th>07/14</th>
+      <th>08/14</th>
+      <th>09/14</th>
+      <th>10/14</th>
+    </tr>
+  </thead>
+</table>
+
+  	<%= form_for(@employee) do |f| %>
+      <%= render "domain_knowledge", :f => f %>
+	  <%= render "technical_knowledge", :f => f %>
+	  <%= f.submit "Save Rating"%>
+	<% end %>
+  
+
+<%= link_to 'Show', @employee %> |
+<%= link_to 'Back', employees_path %>
