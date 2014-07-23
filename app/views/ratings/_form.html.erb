@@ -1,0 +1,70 @@
+<%= form_for(@rating) do |f| %>
+  <% if @rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+      <% @rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+    <%= f.label :month %><br>
+    <%= select_month(Date.today) %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 1.year.from_now.year) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :domain_knowledge %><br>
+    <%= f.number_field :domain_knowledge %>
+  </div>
+  <div class="field">
+    <%= f.label :technical_knowledge %><br>
+    <%= f.number_field :technical_knowledge %>
+  </div>
+  <div class="field">
+    <%= f.label :verbal %><br>
+    <%= f.number_field :verbal %>
+  </div>
+  <div class="field">
+    <%= f.label :written %><br>
+    <%= f.number_field :written %>
+  </div>
+  <div class="field">
+    <%= f.label :leadership %><br>
+    <%= f.number_field :leadership %>
+  </div>
+  <div class="field">
+    <%= f.label :ownership %><br>
+    <%= f.number_field :ownership %>
+  </div>
+  <div class="field">
+    <%= f.label :responsiveness %><br>
+    <%= f.number_field :responsiveness %>
+  </div>
+  <div class="field">
+    <%= f.label :presentation %><br>
+    <%= f.number_field :presentation %>
+  </div>
+  <div class="field">
+    <%= f.label :involvement_in_discussions %><br>
+    <%= f.text_field :involvement_in_discussions %>
+  </div>
+  <div class="field">
+    <%= f.label :assertiveness %><br>
+    <%= f.number_field :assertiveness %>
+  </div>
+  <div class="field">
+    <%= f.label :discipline %><br>
+    <%= f.number_field :discipline %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

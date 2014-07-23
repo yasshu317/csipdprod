@@ -1,0 +1,6 @@
+<h1>Evaluate <%= @employee.name %></h1>
+<%= select_month(14, options = {:prompt => 'Select Month'}, html_options = {:onchange =>"load_rating()"}) %>
+<%= select_year(Date.today, options = {:start_year => Date.today.year, :end_year => 1.year.from_now.year}, html_options = {:onchange =>"load_rating()"}) %>
+
+<div id="rate_skills"></div>
+<%= link_to 'Back', employees_path %>

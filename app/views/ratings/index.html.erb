@@ -1,0 +1,49 @@
+<h1>Listing ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Domain knowledge</th>
+      <th>Technical knowledge</th>
+      <th>Verbal</th>
+      <th>Written</th>
+      <th>Leadership</th>
+      <th>Ownership</th>
+      <th>Responsiveness</th>
+      <th>Presentation</th>
+      <th>Involvement in discussions</th>
+      <th>Assertiveness</th>
+      <th>Discipline</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ratings.each do |rating| %>
+      <tr>
+        <td><%= rating.domain_knowledge %></td>
+        <td><%= rating.technical_knowledge %></td>
+        <td><%= rating.verbal %></td>
+        <td><%= rating.written %></td>
+        <td><%= rating.leadership %></td>
+        <td><%= rating.ownership %></td>
+        <td><%= rating.responsiveness %></td>
+        <td><%= rating.presentation %></td>
+        <td><%= rating.involvement_in_discussions %></td>
+        <td><%= rating.assertiveness %></td>
+        <td><%= rating.discipline %></td>
+        <td><%= rating.month %></td>
+        <td><%= rating.year %></td>
+        <td><%= link_to 'Show', rating %></td>
+        <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
+        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rating', new_rating_path %>

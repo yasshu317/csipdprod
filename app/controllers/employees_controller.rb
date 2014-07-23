@@ -20,6 +20,17 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    if params[:month].blank? 
+    @rating = Rating.new
+      respond_to do |format|
+        format.html
+      end
+    else
+      @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+      respond_to do |format|
+        format.js {render '_technical_knowledge'}
+      end
+    end
   end
 
   # POST /employees
@@ -38,11 +49,47 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def evaluate
+     @employee = Employee.find(params[:id])
+     @rating = Rating.new
+  end
+
+  def rating
+    @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+    if @rating.blank?
+      @rating = Rating.new
+    end
+    @employee = Employee.find(params[:id])
+    respond_to do |format|
+      format.js 
+    end
+  end
+
+  def save_rating
+    @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+    if @rating.blank?
+      @rating = Rating.new
+    end
+    @rating.month = params[:month]
+    @rating.year = params[:year]
+    @rating.verbal = params[:verbal]
+    @rating.leadership = params[:leadership]
+    @rating.ownership = params[:ownership]
+    @rating.responsiveness=params[:responsiveness]
+    @rating.presentation = params[:presentation]
+    @rating.assertiveness = params[:assertiveness]
+    @rating.discipline = params[:discipline]
+    @rating.domain_knowledge = params[:rating_domain_knowledge]
+    @rating.technical_knowledge = params[:rating_technical_knowledge]
+    @rating.employee_id  = params[:id]
+    @rating.save
+
+    render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
-
-    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", params[:employee]
     respond_to do |format|
       if @employee.update_attribute(:score, params[:employee])
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }

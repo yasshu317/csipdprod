@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <tr>
+		<th>Verbal</th>
+		<th>Written</th>	
+		<th>Leadership</th>
+		<th>Ownership</th>	
+		<th>Responsiveness</th>	
+		<th>Presentation</th>	
+		<th>Discussions</th>	
+		<th>Assertiveness</th>	
+		<th>Discipline</th>    </tr>
+  </thead>
+  <tbody>
+	<tr>
+		<%= form_for(@rating) do |f| %>
+			<%= hidden_field_tag :employee_id, @employee.id %>
+			<div class="field">
+		      <%= f.label :domain_knowledge %>
+		      <%= f.number_field :domain_knowledge %>
+		    </div>
+			<div class="field">
+		      <%= f.label :technical_knowledge %>
+		      <%= f.number_field :technical_knowledge %>
+		    </div>
+		    <h3>Soft Skills</h3> 
+		    <td><%= f.number_field :verbal, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :written, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :leadership, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :ownership, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :responsiveness, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :presentation, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :involvement_in_discussions, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :assertiveness, :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :discipline, :style => 'width: 50px' %></td>
+			<td><%= f.submit "Save Rating", :onclick => "save_rating();"  %></td>
+	    <% end %>
+	</tr>
+</tbody>
+</table>
+
+

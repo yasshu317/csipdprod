@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Domain knowledge:</strong>
+  <%= @rating.domain_knowledge %>
+</p>
+
+<p>
+  <strong>Technical knowledge:</strong>
+  <%= @rating.technical_knowledge %>
+</p>
+
+<p>
+  <strong>Verbal:</strong>
+  <%= @rating.verbal %>
+</p>
+
+<p>
+  <strong>Written:</strong>
+  <%= @rating.written %>
+</p>
+
+<p>
+  <strong>Leadership:</strong>
+  <%= @rating.leadership %>
+</p>
+
+<p>
+  <strong>Ownership:</strong>
+  <%= @rating.ownership %>
+</p>
+
+<p>
+  <strong>Responsiveness:</strong>
+  <%= @rating.responsiveness %>
+</p>
+
+<p>
+  <strong>Presentation:</strong>
+  <%= @rating.presentation %>
+</p>
+
+<p>
+  <strong>Involvement in discussions:</strong>
+  <%= @rating.involvement_in_discussions %>
+</p>
+
+<p>
+  <strong>Assertiveness:</strong>
+  <%= @rating.assertiveness %>
+</p>
+
+<p>
+  <strong>Discipline:</strong>
+  <%= @rating.discipline %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @rating.month %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @rating.year %>
+</p>
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+<%= link_to 'Back', ratings_path %>

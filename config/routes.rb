@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  resources :employees
+  resources :ratings
+
+  resources :employees do
+      get :evaluate, :on => :member
+      get :rating, :on => :member
+      get :save_rating, :on => :member
+    end
+
+
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'dashboard#index'
+  # root 'dashboard#index'
+  root 'employees#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
