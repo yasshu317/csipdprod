@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :employees do
       get :evaluate, :on => :member
       get :rating, :on => :member
-      get :save_rating, :on => :member
+      post :save_rating, :on => :member
     end
 
 

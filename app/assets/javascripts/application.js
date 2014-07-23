@@ -52,11 +52,13 @@ function save_rating() {
     var rating_technical_knowledge = $('#rating_technical_knowledge').val();
 
     $.ajax({
+        type: "POST",
         url: 'save_rating',
         data: {
             month: selected_month,
             year: selected_year,
             verbal: verbal,
+            written: written,
             leadership: leadership,
             ownership: ownership,
             responsiveness: responsiveness,

@@ -28,7 +28,7 @@ class EmployeesController < ApplicationController
     else
       @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
       respond_to do |format|
-        format.js {render '_technical_knowledge'}
+        format.js 
       end
     end
   end
@@ -73,6 +73,7 @@ class EmployeesController < ApplicationController
     @rating.month = params[:month]
     @rating.year = params[:year]
     @rating.verbal = params[:verbal]
+    @rating.written = params[:written]
     @rating.leadership = params[:leadership]
     @rating.ownership = params[:ownership]
     @rating.responsiveness=params[:responsiveness]
