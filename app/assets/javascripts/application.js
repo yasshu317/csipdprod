@@ -38,18 +38,19 @@ function save_rating() {
     var year = document.getElementById("date_year");
     var selected_year = year.options[year.selectedIndex].text;
 
-    var verbal = $('#rating_verbal').val();
-    var written = $('#rating_written').val();
-    var leadership = $('#rating_leadership').val();
-    var ownership = $('#rating_ownership').val();
-    var responsiveness = $('#rating_responsiveness').val();
-    var presentation = $('#rating_presentation').val();
-    var discussions = $('#rating_discussions').val();
-    var assertiveness = $('#rating_assertiveness').val();
-    var discipline = $('#rating_discipline').val();
+    var verbal = $('#verbal').val();
+    var written = $('#written').val();
+    var leadership = $('#leadership').val();
+    var ownership = $('#ownership').val();
+    var involvement_in_discussions = $('#involvement_in_discussions').val();
+    var responsiveness = $('#responsiveness').val();
+    var presentation = $('#presentation').val();
+    var discussions = $('#discussions').val();
+    var assertiveness = $('#assertiveness').val();
+    var discipline = $('#discipline').val();
 
-    var rating_domain_knowledge = $('#rating_domain_knowledge').val();
-    var rating_technical_knowledge = $('#rating_technical_knowledge').val();
+    var rating_domain_knowledge = $('#domain_knowledge').val();
+    var rating_technical_knowledge = $('#technical_knowledge').val();
 
     $.ajax({
         type: "POST",
@@ -64,6 +65,7 @@ function save_rating() {
             responsiveness: responsiveness,
             presentation: presentation,
             discussions: discussions,
+            involvement_in_discussions: involvement_in_discussions,
             assertiveness: assertiveness,
             discipline: discipline,
             rating_domain_knowledge: rating_domain_knowledge,

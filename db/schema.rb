@@ -11,13 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722114139) do
+ActiveRecord::Schema.define(version: 20140723101959) do
 
   create_table "employees", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "offshore_manager_ratings", force: true do |t|
+    t.integer  "domain_knowledge"
+    t.integer  "technical_knowledge"
+    t.integer  "verbal"
+    t.integer  "written"
+    t.integer  "leadership"
+    t.integer  "ownership"
+    t.integer  "responsiveness"
+    t.integer  "presentation"
+    t.integer  "involvement_in_discussions"
+    t.integer  "assertiveness"
+    t.integer  "discipline"
+    t.integer  "month"
+    t.integer  "year"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "onsite_manager_ratings", force: true do |t|
+    t.integer  "domain_knowledge"
+    t.integer  "technical_knowledge"
+    t.integer  "verbal"
+    t.integer  "written"
+    t.integer  "leadership"
+    t.integer  "ownership"
+    t.integer  "responsiveness"
+    t.integer  "presentation"
+    t.integer  "involvement_in_discussions"
+    t.integer  "assertiveness"
+    t.integer  "discipline"
+    t.integer  "month"
+    t.integer  "year"
+    t.integer  "employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|

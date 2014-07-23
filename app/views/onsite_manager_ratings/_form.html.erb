@@ -1,0 +1,17 @@
+<%= form_for(@onsite_manager_rating) do |f| %>
+  <% if @onsite_manager_rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@onsite_manager_rating.errors.count, "error") %> prohibited this onsite_manager_rating from being saved:</h2>
+
+      <ul>
+      <% @onsite_manager_rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

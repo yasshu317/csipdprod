@@ -1,0 +1,2 @@
+module OffshoreManagerRatingsHelper
+end
