@@ -70,5 +70,6 @@ function save_rating() {
             rating_technical_knowledge: rating_technical_knowledge
         }
     });
+    alert ("Rating was successfully saved")
     return false;
 }

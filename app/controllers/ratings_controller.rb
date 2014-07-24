@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ratings
   # GET /ratings.json
@@ -38,7 +39,9 @@ class RatingsController < ApplicationController
         if @rating.save
           format.html { redirect_to evaluate_employee_path(@employee), notice: 'Rating was successfully created.' }
           format.json { render :show, status: :created, location: @rating }
+
         else
+          flash[:notice] = "Post successfully created"
           format.html { render :new }
           format.json { render json: @rating.errors, status: :unprocessable_entity }
         end

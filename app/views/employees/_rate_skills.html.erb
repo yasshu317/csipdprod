@@ -33,10 +33,12 @@
 		    <td><%= f.number_field :involvement_in_discussions, :style => 'width: 50px' %></td>
 		    <td><%= f.number_field :assertiveness, :style => 'width: 50px' %></td>
 		    <td><%= f.number_field :discipline, :style => 'width: 50px' %></td>
-			<td><%= f.submit "Save Rating", :onclick => "save_rating();"  %></td>
+			<td><%= f.submit "Save Rating", :onclick => "save_rating();", :id => 'linkinfo', :class =>'linkinf'%></td>
+
 	    <% end %>
 	</tr>
 </tbody>
 </table>
+</br>
 
 
