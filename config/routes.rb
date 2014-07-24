@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :onsite_manager_ratings
+
+  resources :offshore_manager_ratings
+
   resources :ratings
 
   resources :employees do

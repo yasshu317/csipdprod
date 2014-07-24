@@ -55,9 +55,21 @@ class EmployeesController < ApplicationController
   end
 
   def rating
-    @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
-    if @rating.blank?
-      @rating = Rating.new
+    if current_user.roles == Employee::ONSITE_MANAGER
+      @rating = OnsiteManagerRating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+      if @rating.blank?
+          @rating = OnsiteManagerRating.new
+        end
+    elsif current_user.roles == Employee::OFFSHORE_MANAGER
+      @rating = OffshoreManagerRating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+      if @rating.blank?
+          @rating = OffshoreManagerRating.new
+        end
+    else
+       @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+       if @rating.blank?
+          @rating = Rating.new
+        end
     end
     @employee = Employee.find(params[:id])
     respond_to do |format|
@@ -66,9 +78,21 @@ class EmployeesController < ApplicationController
   end
 
   def save_rating
-    @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
-    if @rating.blank?
-      @rating = Rating.new
+    if current_user.roles == Employee::ONSITE_MANAGER
+      @rating = OnsiteManagerRating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+      if @rating.blank?
+          @rating = OnsiteManagerRating.new
+        end
+    elsif current_user.roles == Employee::OFFSHORE_MANAGER
+      @rating = OffshoreManagerRating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+      if @rating.blank?
+          @rating = OffshoreManagerRating.new
+        end
+    else
+       @rating = Rating.find_by_employee_id_and_month_and_year(params[:id], params[:month], params[:year])
+       if @rating.blank?
+          @rating = Rating.new
+        end
     end
     @rating.month = params[:month]
     @rating.year = params[:year]
@@ -79,6 +103,7 @@ class EmployeesController < ApplicationController
     @rating.responsiveness=params[:responsiveness]
     @rating.presentation = params[:presentation]
     @rating.assertiveness = params[:assertiveness]
+    @rating.involvement_in_discussions = params[:involvement_in_discussions]
     @rating.discipline = params[:discipline]
     @rating.domain_knowledge = params[:rating_domain_knowledge]
     @rating.technical_knowledge = params[:rating_technical_knowledge]

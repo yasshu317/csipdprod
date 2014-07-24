@@ -1,0 +1,23 @@
+<h1>Listing offshore_manager_ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offshore_manager_ratings.each do |offshore_manager_rating| %>
+      <tr>
+        <td><%= link_to 'Show', offshore_manager_rating %></td>
+        <td><%= link_to 'Edit', edit_offshore_manager_rating_path(offshore_manager_rating) %></td>
+        <td><%= link_to 'Destroy', offshore_manager_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offshore manager rating', new_offshore_manager_rating_path %>

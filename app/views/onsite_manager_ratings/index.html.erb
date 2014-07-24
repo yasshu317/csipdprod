@@ -1,0 +1,23 @@
+<h1>Listing onsite_manager_ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @onsite_manager_ratings.each do |onsite_manager_rating| %>
+      <tr>
+        <td><%= link_to 'Show', onsite_manager_rating %></td>
+        <td><%= link_to 'Edit', edit_onsite_manager_rating_path(onsite_manager_rating) %></td>
+        <td><%= link_to 'Destroy', onsite_manager_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Onsite manager rating', new_onsite_manager_rating_path %>

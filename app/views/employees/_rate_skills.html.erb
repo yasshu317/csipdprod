@@ -17,24 +17,23 @@
 			<%= hidden_field_tag :employee_id, @employee.id %>
 			<div class="field">
 		      <%= f.label :domain_knowledge %>
-		      <%= f.number_field :domain_knowledge %>
+		      <%= f.number_field :domain_knowledge, :id => 'domain_knowledge' %>
 		    </div>
 			<div class="field">
 		      <%= f.label :technical_knowledge %>
-		      <%= f.number_field :technical_knowledge %>
+		      <%= f.number_field :technical_knowledge, :id => 'technical_knowledge' %>
 		    </div>
-		    <h3>Soft Skills</h3> 
-		    <td><%= f.number_field :verbal, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :written, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :leadership, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :ownership, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :responsiveness, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :presentation, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :involvement_in_discussions, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :assertiveness, :style => 'width: 50px' %></td>
-		    <td><%= f.number_field :discipline, :style => 'width: 50px' %></td>
-			<td><%= f.submit "Save Rating", :onclick => "save_rating();", :id => 'linkinfo', :class =>'linkinf'%></td>
-
+		    <h3>Soft Skills</h3>
+		    <td><%= f.number_field :verbal, :id => 'verbal', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :written, :id => 'written', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :leadership, :id => 'leadership', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :ownership, :id => 'ownership', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :responsiveness, :id => 'responsiveness', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :presentation, :id => 'presentation', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :involvement_in_discussions, :id => 'involvement_in_discussions', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :assertiveness, :id => 'assertiveness', :style => 'width: 50px' %></td>
+		    <td><%= f.number_field :discipline, :id => 'discipline', :style => 'width: 50px' %></td>
+			<td><%= f.submit "Save Rating", :onclick => "save_rating();", :id => 'linkinfo', :class =>'linkinf'  %></td>
 	    <% end %>
 	</tr>
 </tbody>
