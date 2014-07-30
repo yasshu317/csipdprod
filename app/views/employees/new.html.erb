@@ -1,5 +1,8 @@
+<%= stylesheet_link_tag    'flash', media: 'all', 'data-turbolinks-track' => true %>
 <h1>New employee</h1>
 
+<div id="flsh_notice"><%= flash[:error] %>  </div>
 <%= render 'form' %>
+
 
 <%= link_to 'Back', employees_path %>
