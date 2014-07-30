@@ -115,11 +115,11 @@ a {
     margin: 4px 0 0;
 }
 
-#rating_domain_knowledge {
+#domain_knowledge {
     margin-left: 12px;
     width: 50px;
 }
-#rating_technical_knowledge{
+#technical_knowledge{
     width: 50px;
 }
 
@@ -192,10 +192,9 @@ a {
     display: none;
 }
 
-
-
 #signindiv{
     width: 60px;
 }
+
 
 
