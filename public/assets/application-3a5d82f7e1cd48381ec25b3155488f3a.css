@@ -1,6 +1,6 @@
-#flash_notice{
-    background-color: red;
-    color: white;
+#flsh_notice{
+    color: red;
+    width: 210px;
 }
 /* line 1, /home/krishnaiah/CSP/csip/app/assets/stylesheets/scaffolds.css.scss */
 body {
