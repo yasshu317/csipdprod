@@ -5,7 +5,13 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    userid = current_user.id
+    @employees1 = UserEmployee.where(:user_id => userid)
+    array_employees = []
+    @employees1.each do |x|
+      array_employees << x.employee_id
+    end
+    @employees = Employee.where("id IN (?)", array_employees).to_a
   end
 
   # GET /employees/1
@@ -36,17 +42,34 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    empname = employee_params['email']
+    @empname = Employee.find_by_email(empname)
+    if @empname.nil?
+      @employee = Employee.new(employee_params)
+      respond_to do |format|
+        if @employee.save
+          @attribute = UserEmployee.create(:user_id => current_user.id, :employee_id => @employee.id)
 
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
+          format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+          format.json { render :show, status: :created, location: @employee }
+        else
+          format.html { render :new }
+          format.json { render json: @employee.errors, status: :unprocessable_entity }
+        end
       end
-    end
+
+    else
+      @employees_user = UserEmployee.where(:user_id => current_user.id,:employee_id => @empname.id)
+
+      if @employees_user.blank?
+
+        @attribute = UserEmployee.create(:user_id => current_user.id, :employee_id => @empname.id)
+        redirect_to "/employees"
+      else
+        flash[:error] = "You have already added this User"
+        redirect_to new_employee_path
+      end
+     end
   end
 
   def evaluate
@@ -145,6 +168,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :score)
+      params.require(:employee).permit(:name,:email, :score)
     end
 end
